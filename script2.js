@@ -219,8 +219,13 @@ inputMonth.addEventListener("keyup", function(event){
             addErrorState(".day")
             inputDay.focus()
         }
-        else if (+inputMonth.value <= 0){
+        else if (+inputMonth.value < 0){
             errorMonth.textContent = "Must be a valid month";
+            isValid = false
+            addErrorState(".month")
+        }
+        else if (+inputMonth.value === 0){
+            displayReq(errorMonth)
             isValid = false
             addErrorState(".month")
         }
