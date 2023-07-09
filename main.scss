@@ -67,6 +67,14 @@ body{
                 // text-transform: capitalize;
                 font-style: italic;
             }
+            .error-state {
+                label, small{
+                    color: $LightRed;
+                }
+                input{
+                    border-color: $LightRed;
+                }
+            }
         }
         .input > div{
             display: flex;
