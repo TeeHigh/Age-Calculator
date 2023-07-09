@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/main.css">
+
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+
+<body>
+  <main>
+    <!-- ----------------user input-------------------- -->
+    <section class="input">
+      <div class="day">
+        <label for="day">DAY</label>
+        <input type="number" name="day" id="day-el" placeholder="DD" minlength="2" maxlength="2" required>
+        <small class="error-day"></small>
+      </div>
+      <div class="month">
+        <label for="month">MONTH</label>
+        <input type="number" name="month" id="month-el" placeholder="MM" minlength="2" maxlength="2" required>
+        <small class="error-month"></small>
+      </div>
+      <div class="year">
+        <label for="year">YEAR</label>
+        <input type="number" name="year" id="year-el" placeholder="YYYY" minlength="4" maxlength="4" required>
+        <small class="error-year"></small>
+      </div>
+    </section>
+
+    <!-- ----------arrow------------ -->
+    <section class="arrow" type="button" >
+      <div class="line"></div>
+      <div class="arr-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+      </div>
+    </section>
+
+    <!-- ----------------computer output------------------- -->
+    <section class="output">
+      <p><span class="output-year"> -- </span>years</p>
+      <p><span class="output-month"> -- </span>months</p>
+      <p><span class="output-day"> -- </span>days</p>
+    </section>
+  </main>
+
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="">Ifeoluwase</a>.
+  </footer>
+
+  <script src="./script2.js"></script>
+</body>
+
+</html>
