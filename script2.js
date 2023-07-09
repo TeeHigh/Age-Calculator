@@ -86,7 +86,7 @@ inputMonth.addEventListener("input", (e) => {
         isValid = false
         return;
     }
-    else if (+inputMonth.value <= 0){
+    else if (+inputMonth.value < 0){
         errorMonth.textContent = "Must be a valid month";
         addErrorState(".month")
         isValid = false
