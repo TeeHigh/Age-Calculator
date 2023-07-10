@@ -1,12 +1,13 @@
-var V = function(selector){
+var selectorVar = function(selector){
     return document.querySelector(selector);
 }
 
+//input divs
 const dayClass = document.querySelector(".day")
 const monthClass = document.getElementsByClassName("month")
 const yearClass = document.getElementsByClassName("year")
 
-//User Date of birth
+//User Date of birth input
 const inputDay = document.querySelector("#day-el");
 const inputMonth = document.querySelector("#month-el");
 const inputYear = document.querySelector("#year-el");
@@ -29,8 +30,6 @@ var inputTags = document.querySelectorAll("input")
 
 //Current date
 var date = new Date();
-// var currentDay = date.getDate();
-// var currentMonth = 1 + date.getMonth();
 var currentYear = date.getFullYear();
 
 let isValid = false;
@@ -95,10 +94,11 @@ inputMonth.addEventListener("input", (e) => {
         isValid = true
         removeErrorState(".month")
     } 
-    if(+inputDay.value > 30 && +inputMonth.value == 4||+inputDay.value > 30 && +inputMonth.value == 6||+inputDay.value > 30 && +inputMonth.value == 9||+inputDay.value > 30 && +inputMonth.value == 11 ){
+    if(+inputDay.value > 29 && +inputMonth.value == 2||+inputDay.value > 30 && +inputMonth.value == 4||+inputDay.value > 30 && +inputMonth.value == 6||+inputDay.value > 30 && +inputMonth.value == 9||+inputDay.value > 30 && +inputMonth.value == 11 ){
         errorDay.textContent = "Enter a valid date"
         addErrorState(".day")
         isValid = false
+        inputDay.focus()
         return;
     }
     else{
@@ -144,6 +144,17 @@ inputYear.addEventListener("input", (e) => {
         errorYear.textContent = ""
         removeErrorState(".year")
     }
+    if (+inputDay.value > 28 && +inputMonth.value == 2 && inputYear.value.length == 4 && inputYear.value % 4 != 0){
+        errorDay.textContent = "Must be a valid day"
+        isValid = false
+        addErrorState(".day")
+        inputDay.focus()
+    }
+    else{
+        isValid = true
+        errorDay.textContent = ""
+        removeErrorState(".day")
+    }
 })
 
 //Function to carry out calculation and conversion
@@ -164,17 +175,18 @@ function CalculateDate(){
         return;
     }
     else{
+        addErrorState(".day")
+        addErrorState(".month")
+        addErrorState(".year")
         displayReq(errorDay)
         displayReq(errorMonth)
         displayReq(errorYear)
         alert("Error");
-
     }
 }
 
 //Listening for clicks on the calculate button
 arrowButton.addEventListener("click", CalculateDate)
-
 
 //Activating enter key function on YEAR field
 inputYear.addEventListener("keyup", function(event){
@@ -254,18 +266,13 @@ inputDay.addEventListener("keyup", function(event){
     }
 })
 
-
-
 function displayReq(errorArea){
     errorArea.textContent = "This field is required"
 }
 
 function addErrorState(errorValue){
-    V(errorValue).classList.add("error-state")
-    // console.log(V(errorValue))
+    selectorVar(errorValue).classList.add("error-state")
 }
 function removeErrorState(errorValue){
-    V(errorValue).classList.remove("error-state")
-    // console.log(V(errorValue))
+    selectorVar(errorValue).classList.remove("error-state")
 }
-// addErrorState(".day")
