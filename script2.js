@@ -128,6 +128,17 @@ inputYear.addEventListener("input", (e) => {
         isValid = false
         return;
     }
+    if (+inputDay.value > 28 && +inputMonth.value == 2 && inputYear.value.length == 4 && inputYear.value % 4 != 0){
+        errorDay.textContent = "Must be a valid day"
+        isValid = false
+        addErrorState(".day")
+        inputDay.focus()
+    }
+    else{
+        isValid = true
+        errorDay.textContent = ""
+        removeErrorState(".day")
+    }
     if(+inputYear.value <= 0){
         isValid = false
         displayReq(errorYear)
@@ -143,17 +154,6 @@ inputYear.addEventListener("input", (e) => {
     else{
         errorYear.textContent = ""
         removeErrorState(".year")
-    }
-    if (+inputDay.value > 28 && +inputMonth.value == 2 && inputYear.value.length == 4 && inputYear.value % 4 != 0){
-        errorDay.textContent = "Must be a valid day"
-        isValid = false
-        addErrorState(".day")
-        inputDay.focus()
-    }
-    else{
-        isValid = true
-        errorDay.textContent = ""
-        removeErrorState(".day")
     }
 })
 
