@@ -95,7 +95,7 @@ inputMonth.addEventListener("input", (e) => {
     //     isValid = true
     //     removeErrorState(".month")
     // } 
-    else if(+inputMonth.value == 4 && +inputDay.value > 30||+inputMonth.value == 6 && +inputDay.value > 30||+inputMonth.value == 9 && +inputDay.value > 30||+inputMonth.value == 11 && +inputDay.value > 30){
+    else if(+inputDay.value > 30 && +inputMonth.value == 4||+inputDay.value > 30 && +inputMonth.value == 6||+inputDay.value > 30 && +inputMonth.value == 9||+inputDay.value > 30 && +inputMonth.value == 11 ){
         errorDay.textContent = "Enter a valid date"
         addErrorState(".day")
         isValid = false
