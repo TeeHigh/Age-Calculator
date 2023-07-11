@@ -139,9 +139,9 @@ body{
             padding: 1.5em;
 
             .input{
-                gap: 1.5em;
+                gap: 1.8em;
                 input{
-                    width: 4em;
+                    width: 8.4rem;
                 }
             }
 
@@ -153,7 +153,6 @@ body{
                 }
             }
     }
-
     @media (max-width: 600px){
         main{
             // height: 35em;
@@ -163,17 +162,17 @@ body{
             .input{
                 display: flex;
                 justify-content: space-evenly;
-                gap: 1.2em;
+                gap: .6em;
+                
     
                 input{
-                    width: 4.2em;
+                    width: 4.9rem;
                     height: 1.5em;
-                    padding: 25px 12px;
+                    padding: 25px 4px;
                     font-size: 20px;
         
                 }
             }
-            
     
             .arrow{
                 margin: 20px 0 20px;
