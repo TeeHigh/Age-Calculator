@@ -42,11 +42,7 @@ inputDay.addEventListener("input", (e) => {
         isValid = false;
         return;
     }
-    else{
-        isValid = true
-        removeErrorState(".day")
-        errorDay.textContent = ""
-    }
+    
     if(+inputDay.value === 0){
         isValid = false
         displayReq(errorDay)
@@ -63,6 +59,16 @@ inputDay.addEventListener("input", (e) => {
         isValid = true
         removeErrorState(".day")
     }
+    if (+inputDay.value > 28 && +inputMonth.value == 2 && inputYear.value.length == 4 && inputYear.value % 4 != 0){
+        errorDay.textContent = "Must be a valid day"
+        isValid = false
+        addErrorState(".day")
+        inputDay.focus()
+    }
+    else{
+        isValid = true
+        errorDay.textContent = ""
+        removeErrorState(".day")}
 })
 
 //Check for valid input in "MONTH" field
@@ -159,6 +165,27 @@ inputYear.addEventListener("input", (e) => {
 
 //Function to carry out calculation and conversion
 function CalculateDate(){
+    if(+inputDay.value === 0){
+        isValid = false
+        displayReq(errorDay)
+        addErrorState(".day")
+        inputDay.focus()
+    }
+    else if(+inputMonth.value === 0){
+        isValid = false
+        displayReq(errorMonth)
+        addErrorState(".month")
+        inputMonth.focus()
+    }
+    else if(+inputYear.value === 0){
+        isValid = false
+        errorYear.textContent = "Must be a valid year"
+        addErrorState(".year")
+    }
+    else{
+        // displayReq(errorYear);
+        // addErrorState(".year")
+    }
     if(isValid){
         let birthday = `${inputMonth.value}/${inputDay.value}/${inputYear.value}`
         console.log(birthday);
