@@ -145,6 +145,18 @@ inputYear.addEventListener("input", (e) => {
         errorDay.textContent = ""
         removeErrorState(".day")
     }
+    if(+inputYear.value.length == 4 && +inputDay.value > 29 && +inputMonth.value == 2||+inputDay.value > 30 && +inputMonth.value == 4||+inputDay.value > 30 && +inputMonth.value == 6||+inputDay.value > 30 && +inputMonth.value == 9||+inputDay.value > 30 && +inputMonth.value == 11){
+        errorDay.textContent = "Enter a valid date"
+        addErrorState(".day")
+        isValid = false
+        inputDay.focus()
+        return;
+    }
+    else{
+        isValid = true
+        errorDay.textContent = ""
+        removeErrorState(".day")
+    }
     if(+inputYear.value <= 0){
         isValid = false
         displayReq(errorYear)
